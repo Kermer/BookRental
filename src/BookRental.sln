@@ -5,6 +5,12 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookRental.Api", "BookRental.Api\BookRental.Api.csproj", "{0B9EAD73-0A3A-478D-B0DB-811E62026C9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookRental.Api.UnitTests", "BookRental.Api.UnitTests\BookRental.Api.UnitTests.csproj", "{6FC0D25A-7499-4D80-BC79-D78D3B7D1D7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookRental.Api.IntegrationTests", "BookRental.Api.IntegrationTests\BookRental.Api.IntegrationTests.csproj", "{4FC10CA5-2EC4-4A7B-B89D-3106B836A489}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{5B184CAC-FD31-4307-BEC0-99E6C167DA42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +21,21 @@ Global
 		{0B9EAD73-0A3A-478D-B0DB-811E62026C9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B9EAD73-0A3A-478D-B0DB-811E62026C9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B9EAD73-0A3A-478D-B0DB-811E62026C9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FC0D25A-7499-4D80-BC79-D78D3B7D1D7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FC0D25A-7499-4D80-BC79-D78D3B7D1D7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FC0D25A-7499-4D80-BC79-D78D3B7D1D7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FC0D25A-7499-4D80-BC79-D78D3B7D1D7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FC10CA5-2EC4-4A7B-B89D-3106B836A489}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FC10CA5-2EC4-4A7B-B89D-3106B836A489}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FC10CA5-2EC4-4A7B-B89D-3106B836A489}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FC10CA5-2EC4-4A7B-B89D-3106B836A489}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6FC0D25A-7499-4D80-BC79-D78D3B7D1D7A} = {5B184CAC-FD31-4307-BEC0-99E6C167DA42}
+		{4FC10CA5-2EC4-4A7B-B89D-3106B836A489} = {5B184CAC-FD31-4307-BEC0-99E6C167DA42}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D918BA30-0E7D-4B1B-A9D8-D5EF0E213E16}
