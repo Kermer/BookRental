@@ -1,11 +1,11 @@
-﻿using BookRental.Api.Models;
+﻿using BookRental.Api.Contracts.Requests;
 using FluentValidation;
 
 namespace BookRental.Api.Validation;
 
-internal sealed class BookValidator : AbstractValidator<Book>
+internal sealed class BookRequestValidator : AbstractValidator<CreateOrUpdateBookRequest>
 {
-    public BookValidator(IIsbnValidator isbnValidator)
+    public BookRequestValidator(IIsbnValidator isbnValidator)
     {
         RuleFor(x => x.Title)
             .NotEmpty();

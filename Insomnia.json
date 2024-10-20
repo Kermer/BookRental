@@ -1,0 +1,342 @@
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2024-10-21T22:32:04.229Z",
+    "__export_source": "insomnia.desktop.app:v10.1.0",
+    "resources": [
+        {
+            "_id": "req_8b64971716884e31addb28f2d9def041",
+            "parentId": "wrk_4998b53c64ad42fbafb04ee50b346518",
+            "modified": 1729479987234,
+            "created": 1729295515224,
+            "url": "{{ _.url }}Book",
+            "name": "CreateBook",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"title\": \"BookTitle1\",\n\t\"author\": \"N/A\",\n\t\"isbn\": \"978-1-60309-508-2\",\n\t\"status\": 1\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/10.1.0"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1729294363491,
+            "isPrivate": false,
+            "pathParameters": [],
+            "afterResponseScript": "const jsonBody = insomnia.response.json();\nconst bookId = jsonBody.id;\nif (bookId) {\n\tinsomnia.environment.set(\"bookId\", bookId);\n}",
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "wrk_4998b53c64ad42fbafb04ee50b346518",
+            "parentId": null,
+            "modified": 1729294278080,
+            "created": 1729294255393,
+            "name": "Collection1",
+            "description": "",
+            "scope": "collection",
+            "_type": "workspace"
+        },
+        {
+            "_id": "req_956176cf8c8b441586ed348f49bb4573",
+            "parentId": "wrk_4998b53c64ad42fbafb04ee50b346518",
+            "modified": 1729549831317,
+            "created": 1729294363391,
+            "url": "{{ _.url }}Book",
+            "name": "GetAllBooks",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/10.1.0"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1729294363391,
+            "isPrivate": false,
+            "pathParameters": [],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_26451835164a4f28b814509143eebcaa",
+            "parentId": "wrk_4998b53c64ad42fbafb04ee50b346518",
+            "modified": 1729298250479,
+            "created": 1729295493395,
+            "url": "{{ _.url }}Book/{{ _.bookId }}",
+            "name": "GetBookById",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/10.1.0"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1729294363341,
+            "isPrivate": false,
+            "pathParameters": [],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_ff1270cf8bf544198e437ff8d931fe86",
+            "parentId": "wrk_4998b53c64ad42fbafb04ee50b346518",
+            "modified": 1729479950419,
+            "created": 1729298296789,
+            "url": "{{ _.url }}Book/{{ _.bookId }}",
+            "name": "UpdateBook",
+            "description": "",
+            "method": "PUT",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"title\": \"Asdf\",\n\t\"author\": \"N/A\",\n\t\"isbn\": \"978-1-60309-508-2\",\n\t\"status\": \"Borrowed\"\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/10.1.0"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1729294363291,
+            "isPrivate": false,
+            "pathParameters": [],
+            "afterResponseScript": "",
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_1e4ea867360042c9877493b41609369e",
+            "parentId": "wrk_4998b53c64ad42fbafb04ee50b346518",
+            "modified": 1729465565509,
+            "created": 1729465424271,
+            "url": "{{ _.url }}Book/00000000-0000-0000-0000-000000000000",
+            "name": "UpdateBook - empty",
+            "description": "",
+            "method": "PUT",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"title\": \"Asdf\",\n\t\"author\": \"N/A\",\n\t\"isbn\": \"978-1-60309-508-2\",\n\t\"status\": 2\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/10.1.0"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1729294363266,
+            "isPrivate": false,
+            "pathParameters": [],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_31769afee98e4fa1a367b0b921e2ba10",
+            "parentId": "wrk_4998b53c64ad42fbafb04ee50b346518",
+            "modified": 1729465579554,
+            "created": 1729465416482,
+            "url": "{{ _.url }}Book/10000000-0000-0000-0000-000000000000",
+            "name": "UpdateBook - non existing",
+            "description": "",
+            "method": "PUT",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"title\": \"Asdf\",\n\t\"author\": \"N/A\",\n\t\"isbn\": \"978-1-60309-508-2\",\n\t\"status\": 2\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/10.1.0"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1729294363241,
+            "isPrivate": false,
+            "pathParameters": [],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_8aa1ddd766794e68ab83643ebef8d630",
+            "parentId": "wrk_4998b53c64ad42fbafb04ee50b346518",
+            "modified": 1729479154895,
+            "created": 1729479093726,
+            "url": "{{ _.url }}Book/{{ _.bookId }}",
+            "name": "DeleteBook",
+            "description": "",
+            "method": "DELETE",
+            "body": {},
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/10.1.0"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1729294363091,
+            "isPrivate": false,
+            "pathParameters": [],
+            "afterResponseScript": "",
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_6f9dd27ad8e94d41b9e2e178966ff024",
+            "parentId": "wrk_4998b53c64ad42fbafb04ee50b346518",
+            "modified": 1729479144555,
+            "created": 1729479109649,
+            "url": "{{ _.url }}Book/00000000-0000-0000-0000-000000000000",
+            "name": "DeleteBook - empty",
+            "description": "",
+            "method": "DELETE",
+            "body": {},
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/10.1.0"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1729294362991,
+            "isPrivate": false,
+            "pathParameters": [],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_c63c8b6178944fa380d59c00dc3df1f3",
+            "parentId": "wrk_4998b53c64ad42fbafb04ee50b346518",
+            "modified": 1729479141169,
+            "created": 1729479121439,
+            "url": "{{ _.url }}Book/10000000-0000-0000-0000-000000000000",
+            "name": "DeleteBook - non existing",
+            "description": "",
+            "method": "DELETE",
+            "body": {},
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/10.1.0"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1729294362891,
+            "isPrivate": false,
+            "pathParameters": [],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "env_301a29489523b5e8b4ddf211e0a88cb34576cfe0",
+            "parentId": "wrk_4998b53c64ad42fbafb04ee50b346518",
+            "modified": 1729549774328,
+            "created": 1729294255396,
+            "name": "Base Environment",
+            "data": {
+                "port": 7032,
+                "url": "https://localhost:{{ _.port }}/api/v1/",
+                "bookId": "9d5ffd7b-c285-4c06-9e51-054b44fef56e"
+            },
+            "dataPropertyOrder": {
+                "&": [
+                    "port",
+                    "url",
+                    "bookId"
+                ]
+            },
+            "color": null,
+            "isPrivate": false,
+            "metaSortKey": 1729294255396,
+            "_type": "environment"
+        },
+        {
+            "_id": "jar_301a29489523b5e8b4ddf211e0a88cb34576cfe0",
+            "parentId": "wrk_4998b53c64ad42fbafb04ee50b346518",
+            "modified": 1729549774326,
+            "created": 1729294255398,
+            "name": "Default Jar",
+            "cookies": [],
+            "_type": "cookie_jar"
+        }
+    ]
+}

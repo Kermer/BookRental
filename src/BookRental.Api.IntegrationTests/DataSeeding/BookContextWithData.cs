@@ -1,28 +1,15 @@
-﻿using BookRental.Api.Models;
+﻿using BookRental.Api.Data;
+using BookRental.Api.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BookRental.Api.Data;
-
-internal class BookContext : DbContext
+namespace BookRental.Api.IntegrationTests.DataSeeding;
+internal class BookContextWithData : BookContext
 {
-    protected static bool _dataSeeded = false;
-
-    public BookContext(DbContextOptions<BookContext> options) : base(options)
+    public BookContextWithData(DbContextOptions<BookContext> options) : base(options)
     {
         SeedData();
     }
 
-    public DbSet<Book> Books { get; set; }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<Book>()
-            .HasIndex(x => new { x.ISBN })
-            .IsUnique(true);
-    }
-
-    // Keeping this until InMemoryDatabase is swapped to something normal
-    // Creates 50 valid book entries
     private void SeedData()
     {
         if (_dataSeeded)

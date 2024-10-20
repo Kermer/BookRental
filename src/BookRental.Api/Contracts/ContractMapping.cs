@@ -7,26 +7,26 @@ namespace BookRental.Api.Contracts;
 
 public static class ContractMapping
 {
-    public static Book MapToBook(this CreateBookRequest request)
+    public static Book MapToBook(this CreateOrUpdateBookRequest request)
     {
         return new Book()
         {
-            Id = Guid.NewGuid(),
+            Id = new Guid(),
             Title = request.Title,
             Author = request.Author,
-            ISBN = request.ISBN,
+            ISBN = CleanupIsbn(request.ISBN),
             Status = request.Status
         };
     }
 
-    public static Book MapToBook(this UpdateBookRequest request, Guid id)
+    public static Book MapToBook(this CreateOrUpdateBookRequest request, Guid id)
     {
         return new Book()
         {
             Id = id,
             Title = request.Title,
             Author = request.Author,
-            ISBN = request.ISBN,
+            ISBN = CleanupIsbn(request.ISBN),
             Status = request.Status
         };
     }
@@ -61,5 +61,15 @@ public static class ContractMapping
                 Message = x.ErrorMessage
             })
         };
+    }
+
+    /// <summary>
+    /// Removes non-digit letters from isbn number
+    /// </summary>
+    /// <param name="isbn"></param>
+    /// <returns></returns>
+    private static string CleanupIsbn(string isbn)
+    {
+        return isbn.Replace("-", "").Replace(" ", "");
     }
 }

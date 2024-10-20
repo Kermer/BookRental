@@ -2,7 +2,7 @@
 
 namespace BookRental.Api.Contracts.Requests;
 
-public class CreateBookRequest
+public class CreateOrUpdateBookRequest
 {
     public required string Title { get; init; }
     public required string Author { get; init; }
