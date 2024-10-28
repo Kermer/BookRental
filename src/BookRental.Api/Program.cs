@@ -7,6 +7,7 @@ using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using SharpGrip.FluentValidation.AutoValidation.Mvc.Extensions;
 using System.Text.Json.Serialization;
+using BookRental.Api.Contracts.Requests.Parameters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +30,8 @@ builder.Services.AddScoped<IBookRepository, BookRepository>();
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddScoped<IValidator<CreateOrUpdateBookRequest>, BookRequestValidator>();
 builder.Services.AddScoped<IValidator<Book>, BookValidator>();
+builder.Services.AddScoped<IValidator<PaginationParameters>, PaginationParametersValidator>();
+builder.Services.AddScoped<IValidator<SortingParameters>, SortingParametersValidator>();
 builder.Services.AddScoped<IIsbnValidator, IsbnValidator>();
 builder.Services.AddScoped<IValidator<BookStatusChange>, BookStatusChangeValidator>();
 
