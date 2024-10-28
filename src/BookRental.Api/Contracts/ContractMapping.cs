@@ -2,6 +2,7 @@
 using BookRental.Api.Contracts.Responses;
 using BookRental.Api.Models;
 using BookRental.Api.Validation;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BookRental.Api.Contracts;
 
@@ -51,16 +52,10 @@ public static class ContractMapping
         };
     }
 
-    public static ValidationFailureResponse MapToResponse(this ValidationFailed failed)
+    public static ValidationProblemDetails MapToResponse(this ValidationFailed failed)
     {
-        return new ValidationFailureResponse()
-        {
-            Errors = failed.Errors.Select(x => new ValidationFailureEntry()
-            {
-                PropertyName = x.PropertyName,
-                Message = x.ErrorMessage
-            })
-        };
+        return new ValidationProblemDetails(failed.Errors.ToDictionary(x => x.PropertyName,
+            x => new[] { x.ErrorMessage }));
     }
 
     /// <summary>
